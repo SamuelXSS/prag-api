@@ -1,5 +1,7 @@
 const User = require('../models/User')
 const Farm = require('../models/Farm')
+const Area = require('../models/Area')
+
 require('dotenv').config()
 const bcrypt = require('bcrypt')
 const jwt = require('jwt-simple')
@@ -17,7 +19,8 @@ module.exports = {
 
         
         if(user){
-            const farm = await Farm.findOne({ where: { user_id:user.id } })
+            const farm = await Farm.findOne({ where: { user_id } })
+            const area = await Area.findAll({ where: { farm_id: farm.id } })
             if(bcrypt.compareSync(pass, user.pass)){
                 const payload = { id: user.id, user: user.username, name: user.name }
                 res.json({
@@ -30,6 +33,15 @@ module.exports = {
                         ha: farm.ha,
                         latitude: farm.latitude,
                         longitude: farm.longitude
+                    },
+                    area: { 
+                        id: area.id,
+                        name: area.area_name,
+                        ha: area.ha,
+                        latitude: area.latitude,
+                        longitude: area.longitude,
+                        planting_date: area.planting_date,
+                        harvest_date: area.harvest_date
                     },
                     token: jwt.encode(payload, process.env.APP_SECRET)
                 })
