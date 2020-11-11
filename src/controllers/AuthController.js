@@ -25,6 +25,7 @@ module.exports = {
                     email: user.email,
                     username: user.username,
                     farm: {
+                        id: farm.id,
                         name: farm.farm_name,
                         ha: farm.ha,
                         latitude: farm.latitude,
