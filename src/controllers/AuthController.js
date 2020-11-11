@@ -19,7 +19,7 @@ module.exports = {
 
         
         if(user){
-            const farm = await Farm.findOne({ where: { user_id } })
+            const farm = await Farm.findOne({ where: { user_id: user.id } })
             const area = await Area.findAll({ where: { farm_id: farm.id } })
             if(bcrypt.compareSync(pass, user.pass)){
                 const payload = { id: user.id, user: user.username, name: user.name }
