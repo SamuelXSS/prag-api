@@ -34,7 +34,7 @@ module.exports = {
                         latitude: farm.latitude,
                         longitude: farm.longitude
                     },
-                    area: { 
+                    area: [{ 
                         id: area.id,
                         name: area.area_name,
                         ha: area.ha,
@@ -42,7 +42,7 @@ module.exports = {
                         longitude: area.longitude,
                         planting_date: area.planting_date,
                         harvest_date: area.harvest_date
-                    },
+                    }],
                     token: jwt.encode(payload, process.env.APP_SECRET)
                 })
             } else{
