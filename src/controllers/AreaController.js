@@ -17,6 +17,7 @@ module.exports = {
         const { 
             area_name,
             ha,
+            status,
             latitude,
             longitude,
             planting_date,
@@ -32,6 +33,7 @@ module.exports = {
         const area = await Area.create({
             area_name,
             ha,
+            status,
             latitude,
             longitude,
             planting_date,

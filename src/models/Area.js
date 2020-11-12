@@ -5,6 +5,7 @@ class Area extends Model {
         super.init({
             area_name: DataTypes.STRING,
             ha: DataTypes.DECIMAL,
+            status: DataTypes.STRING,
             latitude: DataTypes.DECIMAL,
             longitude: DataTypes.DECIMAL,
             planting_date: DataTypes.DATE,
