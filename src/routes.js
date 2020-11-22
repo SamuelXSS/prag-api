@@ -5,6 +5,7 @@ const AreaController = require('./controllers/AreaController');
 const PragueController = require('./controllers/PragueController');
 const PesticideController = require('./controllers/PesticideController');
 const AuthController = require('./controllers/AuthController');
+const ReportController = require('./controllers/ReportController');
 
 const routes  = express.Router();
 require('dotenv').config()
@@ -34,5 +35,8 @@ routes.post(version + '/users/:user_id/farms', FarmController.store)
 //AREAS OK
 routes.get(version  + '/farms/:farm_id/areas', AreaController.index);
 routes.post(version + '/farms/:farm_id/areas', AreaController.store);
+
+//REPORTS OK
+routes.post(version + '/area/:area_id/prague/:prague_id/reports', ReportController.store)
 
 module.exports = routes;

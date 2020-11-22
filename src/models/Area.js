@@ -17,6 +17,7 @@ class Area extends Model {
 
     static associate(models) {
         this.belongsTo(models.Farm, { foreignKey: 'farm_id', as: 'farms' });
+        this.belongsToMany(models.Report, { foreignKey: 'area_id', through:'prague_areas', as: 'reports' });
     }
 }
 
