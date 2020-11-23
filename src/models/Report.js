@@ -10,8 +10,8 @@ class Report extends Model {
         })
     }
     static associate(models){
-        this.belongsToMany(models.Area, { foreignKey: 'area_id', through: 'prague_areas', as: 'areas' })
-        this.belongsToMany(models.Prague, { foreignKey: 'prague_id',through: 'prague_areas', as: 'pragues' })
+        this.belongsTo(models.Area, { foreignKey: 'area_id', as: 'areas' })
+        this.belongsTo(models.Prague, { foreignKey: 'prague_id', as: 'pragues' })
     }
 }
 

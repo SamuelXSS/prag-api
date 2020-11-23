@@ -10,7 +10,7 @@ class Prague extends Model {
     }
     static associate(models){
         this.belongsToMany(models.Pesticide, { foreignKey: 'prague_id', through:'prague_pesticides', as: 'pesticides' })
-        this.belongsToMany(models.Report, { foreignKey: 'prague_id', through:'prague_areas', as: 'reports' })
+        this.hasMany(models.Report, { foreignKey: 'prague_id', as:'reports' })
     }
 }
 

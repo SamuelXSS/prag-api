@@ -20,8 +20,8 @@ module.exports = {
         const report = await Report.create({
             infested,
             inseticide_applied,
+            prague_id,
             area_id,
-            prague_id
         })
 
         return res.json(report)
